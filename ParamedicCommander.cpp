@@ -15,22 +15,17 @@ namespace WarGame{
         for(row=0; row < board.size();row++){
             for(col=0;col<board[0].size();col++){
                 Soldier* sol = board[row][col];
-                double dis=distance(spot.first, spot.second,row,col);
-                 if(sol!=nullptr && sol->getPlayerNum()== this->player 
-                 && dis <=sqrt(2) && dis!=0){
-                    printSoldier();
-                    cout << "Cure:";
+                if(sol != nullptr) {        
+                if(sol->getPlayerNum() == player){
                     sol->printSoldier();
-                    sol->cure(); cout << endl;
-                 }
-                 else if(Paramedic* ps=dynamic_cast<Paramedic*>(sol)){
+                    if(Paramedic* ps=dynamic_cast<Paramedic*>(sol)){
 				    	ps->play(board,{row,col});
-					}
+                	}	}}
             }
         }
     }
 
-        void ParamedicCommander::printSoldier()
+    void ParamedicCommander::printSoldier()
     {
         cout << "("
              << "ParamedicCommander:";

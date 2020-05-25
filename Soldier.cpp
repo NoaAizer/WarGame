@@ -3,20 +3,23 @@
 
 namespace WarGame
 {
-    double Soldier::distance(int x1, int y1, int x2, int y2){
+    double Soldier::distance(uint x1, uint y1, uint x2, uint y2){
         return sqrt(pow(x1-x2,2)+pow(y1-y2,2));
     }
     void Soldier::cure(){
-            hp=fullHealth;
+        hp=fullHealth;
     }
     void Soldier::shoot(uint power){
         hp-=power;
-        if(hp<0)
+        if(hp<=0){
+            cout<<"dead"<<endl;
             hp=0;
+        }
+        
     }
     
     void Soldier::printSoldier(){
-        cout << player << ", Health Points:" << hp;
+            cout << player << ", Health Points:" << hp;
     }
   
 }

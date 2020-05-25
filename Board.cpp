@@ -34,16 +34,16 @@ namespace WarGame{
 
         std::pair<int,int> target;
         if(direction == Left){
-            target =std::make_pair( source.first-1,source.second);
+            target =std::make_pair( source.first,source.second-1);
         }
           if(direction == Right){
-            target =std::make_pair( source.first+1,source.second);
-        }
-          if(direction == Up){
             target =std::make_pair( source.first,source.second+1);
         }
+          if(direction == Up){
+            target =std::make_pair( source.first+1,source.second);
+        }
           if(direction == Down){
-            target =std::make_pair( source.first,source.second-1);
+            target =std::make_pair( source.first-1,source.second);
         }
         if(target.first<0 || target.first>=board.size() || target.second<0 || target.second >=board[0].size())
              throw invalid_argument("ERR: Try to move out of the board");

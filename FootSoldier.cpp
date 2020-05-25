@@ -21,16 +21,16 @@ namespace WarGame{
                     if(currDis< toAttack.first){ // The closest soldier
                         printSoldier();
                         cout << "Shoot:";
-                        sol->printSoldier(); cout << endl;
                         toAttack.first=currDis;
                         toAttack.second=sol;
+                        toAttack.second->printSoldier(); cout << endl;
                     }
                  }
             }
         }
     toAttack.second->shoot(ppa);
     if(toAttack.second->getHealth()==0){
-        //delete toAttack.second;
+        delete toAttack.second;
         toAttack.second=nullptr;
     }
     }

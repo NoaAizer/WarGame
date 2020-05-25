@@ -17,7 +17,7 @@ protected:
 
   public:
     Soldier(uint playerID, uint h, uint p=0) : player(playerID), fullHealth(h), hp(h), ppa(p) {}
-    double distance(int x1, int y1, int x2, int y2);
+    double distance(uint x1, uint y1, uint x2, uint y2);
     void cure();
     void shoot(uint power);
     uint getPlayerNum(){ return player;}

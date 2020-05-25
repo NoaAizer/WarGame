@@ -9,22 +9,41 @@ using namespace std;
 
 namespace WarGame{
    void Paramedic::play(vector<vector<Soldier*>> &board,std::pair<int,int> spot){
-        Soldier* sol;
-        int row,col;
-        uint currHealth;
-        for(row=0; row < board.size();row++){
-            for(col=0;col<board[0].size();col++){
-                Soldier* sol = board[row][col];
-                double dis=distance(spot.first, spot.second,row,col);
-                 if(sol!=nullptr && sol->getPlayerNum()== this->player 
-                 && dis <=sqrt(2) && dis!=0){
-                    printSoldier();
-                    cout << "Cure:"; 
-                    sol->printSoldier(); cout << endl;
-                    sol->cure();
-                 }
-            }
+       int i=spot.first;
+       int j= spot.second;
+        printSoldier();
+        cout << "Cure:"; 
+        bool flag=false;
+    
+        if( (i-1)>=0 && board[i-1][j] != nullptr){
+            if(board[i-1][j]->getPlayerNum()== player ) {
+                board[i-1][j]->printSoldier(); cout << endl;
+                flag=true;
+                board[i-1][j]->cure();}
         }
+        
+        if( (j+1)<=(board[0].size()-1) && board[i][j+1] != nullptr){
+            if(board[i][j+1]->getPlayerNum()== player ) {
+                board[i][j+1]->printSoldier(); cout << endl;
+                flag=true;
+                board[i][j+1]->cure();}
+        }
+        if((j-1)>=0 && board[i][j-1] != nullptr){
+        if(board[i][j-1]->getPlayerNum()== player){
+                board[i][j-1]->printSoldier(); cout << endl;
+                flag=true;
+                board[i][j-1]->cure();}
+        }
+        if((i+1)<=(board[0].size()-1)&& board[i+1][j] != nullptr){
+            if(board[i+1][j]->getPlayerNum()== player){
+                board[i+1][j]->printSoldier(); cout << endl; 
+                flag=true;
+                board[i+1][j]->cure();}
+        }
+
+         cout << "No one"<<endl; 
+   
+
     }
 
 

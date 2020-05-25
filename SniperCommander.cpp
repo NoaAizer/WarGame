@@ -16,31 +16,35 @@ namespace WarGame{
         for(row=0; row < board.size();row++){
             for(col=0;col<board[0].size();col++){
                 Soldier* sol = board[row][col];
-                  if(sol!=nullptr && sol->getPlayerNum()!= this->player){
+                if(sol!=nullptr){
+                  if(sol->getPlayerNum()!= this->player){
                         currHealth= sol->getHealth();
                     if(currHealth>= toAttack.first){ // The closest soldier
                         toAttack.first=currHealth;
                         toAttack.second=sol;
                         printSoldier();
                         cout << "Shoot:";
-                        sol->printSoldier();
+                        toAttack.second->printSoldier();
                         cout << endl;
                     }
                  }
                  else if(Sniper* ps=dynamic_cast<Sniper*>(sol)){
 				    	ps->play(board,{row,col});
-					}
+                	}
+                }
             }
         }
+    
     toAttack.second->shoot(ppa);
     if(toAttack.second->getHealth()==0){
-        toAttack.second=nullptr;
+        delete toAttack.second;
+       toAttack.second=nullptr;
     }
     }
     void SniperCommander::printSoldier()
     {
         cout << "("
-             << "Sniper:";
+             << "SniperCommander:";
         Soldier::printSoldier();
         cout << ")";
     }

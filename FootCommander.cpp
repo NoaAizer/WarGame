@@ -34,6 +34,7 @@ namespace WarGame{
         }
     toAttack.second->shoot(ppa);
     if(toAttack.second->getHealth()==0){
+        delete toAttack.second;
         toAttack.second=nullptr;
     }
     }

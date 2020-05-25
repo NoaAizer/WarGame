@@ -21,20 +21,22 @@ namespace WarGame{
                     if(currHealth >= toAttack.first){ // The strongest soldier
                         toAttack.first=currHealth;
                         toAttack.second=sol;
-                        printSoldier();
+                            printSoldier();
                         cout << "Shoot:";
-                        sol->printSoldier();
+                         toAttack.second->printSoldier();
                         cout << endl;
                     }
                  }
             }
         }
+
     toAttack.second->shoot(ppa);
     if(toAttack.second->getHealth()==0){
-        toAttack.second=nullptr;
+        delete toAttack.second;
+        sol=nullptr;
     }
     }
-            void Sniper::printSoldier()
+    void Sniper::printSoldier()
     {
         cout << "("
              << "Sniper:";
