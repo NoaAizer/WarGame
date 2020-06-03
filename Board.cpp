@@ -24,16 +24,13 @@ namespace WarGame{
     void Board::move(uint player_number, std::pair<int,int> source, MoveDIR direction){
         if(source.first<0 || source.first>=board.size() || source.second<0 || source.second >=board[0].size())
             throw invalid_argument("ERR: Source sopt it is out of the board");
-         Soldier *s = board[ source.first][source.second];
+        Soldier *s = board[ source.first][source.second];
         if(s == nullptr)
             throw invalid_argument("ERR: No soldier on the spot");
-
         if(s->getPlayerNum()!= player_number)
             throw invalid_argument("ERR: This is not your soldier");
         if (s->getHealth() ==0)
-        {
             throw invalid_argument("ERR: This soldier is dead");
-        }
 
         std::pair<int,int> target;
         if(direction == Left){
@@ -60,12 +57,14 @@ namespace WarGame{
     // returns true iff the board contains one or more soldiers of the given player.
     bool Board::has_soldiers(uint player_number) const{
         for(int row=0; row < board.size();row++){
-            for(int col=0;col<board[0].size();col++)
+            for(int col=0;col<board[0].size();col++){
                 if((*this)[{row,col}] != nullptr && (*this)[{row,col}]->getPlayerNum() == player_number
                     && (*this)[{row,col}]->getHealth()!=0 )
                     return true;
+            }
         }
         return false;
     }
+         
 
 }

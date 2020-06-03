@@ -9,10 +9,11 @@ namespace WarGame
     void Soldier::cure(){
         hp=fullHealth;
     }
-    void Soldier::shoot(uint power){
+    void Soldier::shoot(int power){
         hp-=power;
         if(hp<=0){
-            cout<<"dead"<<endl;
+            this->printSoldier();
+            cout<<" is dead"<<endl;
             hp=0;
         }
         

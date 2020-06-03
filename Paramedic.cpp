@@ -41,9 +41,7 @@ using namespace WarGame;
                 board[i+1][j]->cure();}
         }
 
-         cout << "No one"<<endl; 
-   
-
+        cout << "No one"<<endl; 
     }
 
 
