@@ -7,7 +7,7 @@
 
 using namespace std;
 
-namespace WarGame{
+using namespace WarGame;
    void Paramedic::play(vector<vector<Soldier*>> &board,std::pair<int,int> spot){
        int i=spot.first;
        int j= spot.second;
@@ -54,6 +54,6 @@ namespace WarGame{
         Soldier::printSoldier();
         cout << ")";
     }
-}
+
 
 

@@ -1,6 +1,9 @@
+#pragma once
+
 #include "Soldier.hpp"
 
-namespace WarGame{
+using namespace WarGame;
+
     class ParamedicCommander: public Soldier{
 
         public:
@@ -8,4 +11,3 @@ namespace WarGame{
             void play(vector<vector<Soldier*>> &board,std::pair<int,int> spot);
             virtual void printSoldier();
     };
-}

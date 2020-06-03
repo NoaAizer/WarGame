@@ -6,8 +6,9 @@
 #include "Paramedic.hpp"
 #include "ParamedicCommander.hpp"
 
+using namespace std;
+using namespace WarGame;
 
-namespace WarGame{
    void ParamedicCommander::play(vector<vector<Soldier*>> &board,std::pair<int,int> spot){
         Soldier* sol;
         int row,col;
@@ -32,6 +33,6 @@ namespace WarGame{
         Soldier::printSoldier();
         cout << ")";
     }
-}
+
 
 

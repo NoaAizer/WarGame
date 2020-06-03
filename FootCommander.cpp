@@ -6,9 +6,8 @@
 #include "FootCommander.hpp"
 #include "FootSoldier.hpp"
 using namespace std;
+using namespace WarGame;
 
-
-namespace WarGame{
    void FootCommander::play(vector<vector<Soldier*>> &board,std::pair<int,int> spot){
         pair<double, Soldier*> toAttack =make_pair( __DBL_MAX__, nullptr);
         Soldier* sol;
@@ -22,7 +21,7 @@ namespace WarGame{
                     if(currDis< toAttack.first){ // The closest soldier
                         printSoldier();
                         cout << "Shoot:";
-                        sol->printSoldier(); cout << endl;
+                        //sol->printSoldier(); cout << endl;
                         toAttack.first=currDis;
                         toAttack.second=sol;
                     }
@@ -32,10 +31,13 @@ namespace WarGame{
 					}
             }
         }
+        
+   if(toAttack.second!=nullptr){
     toAttack.second->shoot(ppa);
     if(toAttack.second->getHealth()==0){
         delete toAttack.second;
         toAttack.second=nullptr;
+    }
     }
     }
     void FootCommander::printSoldier()
@@ -45,6 +47,6 @@ namespace WarGame{
         Soldier::printSoldier();
         cout << ")";
     }
-}
+
 
 

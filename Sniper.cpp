@@ -5,9 +5,8 @@
 #include "Soldier.hpp"
 #include "Sniper.hpp"
 using namespace std;
+using namespace WarGame;
 
-
-namespace WarGame{
    void Sniper::play(vector<vector<Soldier*>> &board,std::pair<int,int> spot){
         pair<uint, Soldier*> toAttack =make_pair( 0 , nullptr);
         Soldier* sol;
@@ -23,17 +22,18 @@ namespace WarGame{
                         toAttack.second=sol;
                             printSoldier();
                         cout << "Shoot:";
-                         toAttack.second->printSoldier();
+                        toAttack.second->printSoldier();
                         cout << endl;
                     }
                  }
             }
         }
-
+   if(toAttack.second!=nullptr){
     toAttack.second->shoot(ppa);
     if(toAttack.second->getHealth()==0){
         delete toAttack.second;
-        sol=nullptr;
+        toAttack.second=nullptr;
+    }
     }
     }
     void Sniper::printSoldier()
@@ -43,6 +43,6 @@ namespace WarGame{
         Soldier::printSoldier();
         cout << ")";
     }
-}
+
 
 

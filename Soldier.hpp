@@ -21,7 +21,7 @@ protected:
     void cure();
     void shoot(uint power);
     uint getPlayerNum(){ return player;}
-    uint getHealth(){ return hp;}
+    uint getHealth(){ if(hp<=0)return 0; else return hp;}
     virtual void play(vector<vector<Soldier*>> &board,std::pair<int,int> spot){;}
     virtual void printSoldier();
   };
